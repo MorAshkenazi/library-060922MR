@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Home from "./components/Home";
+import { useState } from "react";
 
 function App() {
+  let [isLoggedIn, setIsLoggedIn] = useState<boolean>(
+    sessionStorage.getItem("isLoggedIn") == "true" ? true : false
+  );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Routes>
+          <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+          <Route
+            path="/register"
+            element={<Register setIsLoggedIn={setIsLoggedIn} />}
+          />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

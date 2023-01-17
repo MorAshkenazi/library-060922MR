@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Mor Ashkenazi",
+      "email": "mora@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "email": "harry@gmail.com",
+      "password": "12345678",
+      "name": "Harry Potter",
+      "id": 2
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "name": "Harry Potter",
+      "author": "J.K. Rolling",
+      "genre": "Novel",
+      "price": 100
+    },
+    {
+      "name": "Harry Potter 2",
+      "author": "JK Rolling",
+      "genre": "Kids",
+      "price": 100,
+      "id": 2
+    }
+  ]
+}
